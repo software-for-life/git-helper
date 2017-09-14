@@ -1,29 +1,53 @@
 # git-helper
 
-A set of commands that execute common git tasks. ([git-sync-fork](#git-sync-fork))
+A set of commands that execute common git tasks. ([diff-highlight](#diff-highlight), [git-sync-fork](#git-sync-fork))
 
-## git-sync-fork
+----
 
-### Synopsis:
+### diff-highlight
+
+##### Description:
+
+This perl script should be used in your git configuration.
+
+##### Example:
+
+Extract of _~/.gitconfig_
+
+```
+[diff]
+  compactionHeuristic = true
+[interactive]
+  diffFilter = diff-highlight.pl
+[pager]
+  diff = diff-highlight.pl | less
+  log = diff-highlight.pl | less
+  show = diff-highlight.pl | less
+```
+
+### git-sync-fork
+
+##### Synopsis:
 
 ```
 git-sync-fork [BRANCH]...
 ```
 
-### Example:
+##### Example:
 ```
 user@pc:git-project/$ git-sync-fork master gh-pages
 ```
 
-### Description:
+##### Description:
 
 It updates the branches in fork with the branches in the upstream repository.
 
-### Assumptions:
+##### Assumptions:
 - The current directory is the git project.
 - The name of the remote for the upstream repository is 'origin'.
 - The name of the remote for the forked repository is 'fork'.
 
+----
 
 # OBS
 
