@@ -24,8 +24,10 @@ install:
 	mkdir -p $(path_bin)
 	install -m 0655 src/git-sync-fork.sh "$(path_bin)"
 	ln -s /usr/local/bin/git-sync-fork.sh "$(path_bin)"/git-sync-fork
+	install -m 0655 src/diff-highlight.pl "$(path_bin)"
 
 .PHONY: remove
 remove:
 	rm "$(path_bin)"/git-sync-fork
 	rm "$(path_bin)"/git-sync-fork.sh
+	rm "$(path_bin)"/diff-highlight.pl
